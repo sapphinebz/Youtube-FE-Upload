@@ -1,5 +1,9 @@
 # Upload
 
+ตัวอย่างโค้ดเขียน Upload Files
+[Frontend Repo](https://github.com/sapphinebz/Youtube-FE-Upload)
+[Backend Repo](https://github.com/sapphinebz/Youtube-BE-Upload)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
 
 ## Development server
