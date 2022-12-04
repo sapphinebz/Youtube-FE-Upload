@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Upload';
-
-  postMessage() {
-    console.log('Yay upload success !');
-  }
 }

@@ -1,0 +1,44 @@
+.button-container {
+  display: flex;
+  column-gap: 0.4rem;
+  padding: 1.25rem;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+button {
+  background-color: #3b82f6;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #3b82f6;
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: normal;
+  cursor: pointer;
+
+  &:not([disabled]):hover {
+    background: #2563eb;
+    border: 1px solid #2563eb;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: unset;
+  }
+}
+
+.upload-list-container {
+  padding: 1.25rem;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.upload-row {
+  color: #495057;
+  padding: 0.75rem 1.25rem;
+
+  td {
+    padding: 0.75rem 1.25rem;
+  }
+}

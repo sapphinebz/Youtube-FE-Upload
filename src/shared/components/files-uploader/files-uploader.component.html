@@ -1,0 +1,31 @@
+<div>
+  <section class="button-container">
+    <input
+      #fileEl
+      (change)="selectedFile(fileEl)"
+      type="file"
+      style="display: none"
+    />
+    <button (click)="fileEl.click()">Choose</button>
+    <button (click)="clickUpload()" [disabled]="files.length === 0">
+      Upload
+    </button>
+    <button (click)="clickCancel()">Cancel</button>
+  </section>
+  <section class="upload-list-container">
+    <table>
+      <!-- <thead>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead> -->
+      <tbody>
+        <tr class="upload-row" *ngFor="let file of files">
+          <td>{{ file.name }}</td>
+          <td>{{ file.size / 1000 }} KB</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
