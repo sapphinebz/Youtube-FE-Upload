@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EMPTY, Subject } from 'rxjs';
+import { EMPTY, Observable, Subject } from 'rxjs';
 import { catchError, exhaustMap } from 'rxjs/operators';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
@@ -12,6 +12,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   styleUrls: ['./files-uploader.component.scss'],
 })
 export class FilesUploaderComponent implements OnInit {
+  @Input() uploadConfig!: (
+    http: HttpClient,
+    formData: FormData
+  ) => Observable<any>;
   clickUpload$ = new Subject<FormData>();
   files: File[] = [];
 
@@ -21,14 +25,7 @@ export class FilesUploaderComponent implements OnInit {
     this.clickUpload$
       .pipe(
         exhaustMap((formData) => {
-          return this.http
-            .post(`http://localhost:3000/upload/multiples`, formData)
-            .pipe(
-              catchError((err) => {
-                console.error(err);
-                return EMPTY;
-              })
-            );
+          return this.uploadConfig(this.http, formData);
         })
       )
       .subscribe(() => {
