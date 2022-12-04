@@ -5,6 +5,7 @@
       (change)="selectedFile(fileEl)"
       type="file"
       style="display: none"
+      multiple
     />
     <button (click)="fileEl.click()">Choose</button>
     <button (click)="clickUpload()" [disabled]="files.length === 0">
